@@ -7,7 +7,3 @@ sources:
     tables:
       - name: customers
       - name: orders
-
-  - name: stripe
-    tables:
-      - name: payments
