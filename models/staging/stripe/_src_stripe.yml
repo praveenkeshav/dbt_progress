@@ -3,6 +3,19 @@ version: 2
 sources:
   - name: stripe
     database: raw
+    config:
+      freshness:
+        warn_after: {count: 2, period: day}
+        error_after: {count: 3, period: day}
+      loaded_at_field: _batched_at
     schema: stripe
+    description: a source of a Postgres application database.
     tables:
       - name: payment
+        description: raw payments data
+        columns:
+          - name: id
+            description: Primary key for payment table
+            data_tests:
+              - unique
+              - not_null
