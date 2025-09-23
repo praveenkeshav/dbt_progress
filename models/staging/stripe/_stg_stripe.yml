@@ -12,14 +12,12 @@ models:
         data_tests:
           - not_null
           - relationships:
-              field: order_id
-              to: ref('stg_jaffle_shop__orders')
+              arguments:
+                field: order_id
+                to: ref('stg_jaffle_shop__orders')
       - name: payment_method
         description: "{{ doc('payment_method') }}"
         data_tests:
           - accepted_values:
-              values:
-                - credit_card
-                - bank_transfer
-                - gift_card
-                - coupon
+              arguments:
+                values: ['credit_card', 'bank_transfer', 'gift_card', 'coupon']
