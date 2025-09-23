@@ -5,8 +5,8 @@ sources:
     database: raw
     config:
       freshness:
-        warn_after: {count: 2, period: day}
-        error_after: {count: 3, period: day}
+        warn_after: {count: 5, period: day}
+        error_after: {count: 7, period: day}
       loaded_at_field: _batched_at
     schema: stripe
     description: a source of a Postgres application database.
