@@ -37,11 +37,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   dbt_progress:
-    audit:
-      +enabled: false
-    snowflake_spend:
-      +enabled: true
     staging:
       +materialized: view
+    intermediate:
+      +materialized: table
     marts:
       +materialized: table
