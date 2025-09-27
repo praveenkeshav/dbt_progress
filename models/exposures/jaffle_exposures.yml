@@ -6,10 +6,13 @@ exposures:
     url: https://tinyurl.com/jaffle-shop-reporting
     description: 'Exposures for orders data'
     owner:
-      name: Praveen Keshav
-      email: data@jaffleshop.com
+      name: Praveen K
+      email: prvnkshv@gmail.com
     depends_on:
       - ref('fct_orders')
+      - metric('order_total')
+      - metric('large_orders')
+      - metric('cumulative_order_amount_mtd')
 
   - name: Customers_data
     label: Customers_data
@@ -20,5 +23,5 @@ exposures:
     depends_on:
       - ref('dim_customers')
     owner: 
-      name: Data Startrek
-      email: operations_manager@enterprise.com      
+      name: Praveen K
+      email: prvnkshv@gmail.com    
