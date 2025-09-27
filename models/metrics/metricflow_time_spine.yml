@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: metricflow_time_spine
+    description: "Time spine used by MetricFlow (date_day column, daily grain)"
+    # optional metadata you can use later; not required for removing the deprecation,
+    # but useful for documentation
+    meta:
+      used_by: "MetricFlow / semantic layer"
+    columns:
+      - name: date_day
+        description: "Primary date column for the time spine (cast to DATE in SQL)"

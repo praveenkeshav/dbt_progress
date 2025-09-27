@@ -42,7 +42,7 @@ metrics:
     type_params:
       measure:
         name: amount
-      grain_to_date: month      
-              
+      cumulative_type_params:  
+        grain_to_date: month
 
           
