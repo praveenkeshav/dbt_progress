@@ -5,7 +5,10 @@ packages:
   - name: audit_helper
     package: dbt-labs/audit_helper
     version: 0.12.1
+  - name: dbt_meta_testing
+    package: tnightengale/dbt_meta_testing
+    version: 0.3.6
   - git: https://github.com/dbt-labs/dbt-codegen.git
     name: codegen
     revision: 474f7a10582b74b03fa9c065847b6f0463d24c23
-sha1_hash: dd70289947857ed5736a10428a76df122d94932e
+sha1_hash: 3579347c84a7995325c0ae1c9072d30a1707f6a4
