@@ -11,4 +11,10 @@ packages:
   - git: https://github.com/dbt-labs/dbt-codegen.git
     name: codegen
     revision: 474f7a10582b74b03fa9c065847b6f0463d24c23
-sha1_hash: 3579347c84a7995325c0ae1c9072d30a1707f6a4
+  - name: dbt_expectations
+    package: metaplane/dbt_expectations
+    version: 0.10.9
+  - name: dbt_date
+    package: godatadriven/dbt_date
+    version: 0.16.1
+sha1_hash: 54a0844992adf9e35db3ca8824338cc7371530e0

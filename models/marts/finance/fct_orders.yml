@@ -1,0 +1,39 @@
+models:
+  - name: fct_orders
+    description: order overview data mart, offering key details for each order including if it's a customer's first order information.
+    data_tests:
+    - dbt_utils.expression_is_true:
+        expression: "amount >= 0"
+    columns:
+      - name: order_id
+        description: the unique key of the orders mart.
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: the foreign key relating to the customer who placed the order
+        data_tests:
+          - relationships:
+              to: ref('stg_jaffle_shop__customers')
+              field: customer_id
+          # this test should fail, use `dbt test -s orders --store-failures` to find results
+#         - unique
+          - not_null
+      - name: order_date
+        data_tests:
+          - not_null
+      - name: amount
+        description: rounded dollar amount of the order
+        data_tests: 
+          - dollars_spent_greater_than_one:
+              group_by_column: customer_id
+          - dbt_expectations.expect_column_values_to_be_between: 
+              min_value: 0
+              max_value: 100
+              strictly: false
+          - dbt_expectations.expect_column_mean_to_be_between: 
+          # this will perform what our singular and generic tests do!
+              min_value: 1
+              group_by: [customer_id] 
+              row_condition: "order_id is not null" # (Optional)
+              strictly: false 

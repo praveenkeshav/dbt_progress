@@ -39,6 +39,7 @@ models:
   dbt_progress:
     staging:
       +materialized: view
+      +required_tests: {"unique.*|not_null|dbt_utils.cardinality_equality": 2}
     intermediate:
       +materialized: table
     marts:
